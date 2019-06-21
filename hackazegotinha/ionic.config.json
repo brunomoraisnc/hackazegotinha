@@ -1,5 +1,8 @@
 {
   "name": "hackazegotinha",
-  "integrations": {},
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
   "type": "ionic-angular"
 }

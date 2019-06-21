@@ -7,7 +7,9 @@ import { NavController } from 'ionic-angular';
 })
 export class ScannerDeIdentidadePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController) { 
   }
+
+  
   
 }

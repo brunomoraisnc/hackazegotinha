@@ -1,7 +1,10 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
+import { Camera } from '@ionic-native/camera';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+
 import { CadastroDeVacinaPage } from '../pages/cadastro-de-vacina/cadastro-de-vacina';
 import { LoginPage } from '../pages/login/login';
 import { CadastroDePacientePage } from '../pages/cadastro-de-paciente/cadastro-de-paciente';
@@ -43,6 +46,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

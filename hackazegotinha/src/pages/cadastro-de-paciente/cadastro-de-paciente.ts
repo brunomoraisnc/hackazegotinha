@@ -8,14 +8,35 @@ import { LoginPage } from '../login/login';
 import { ScannerDeVacinaPage } from '../scanner-de-vacina/scanner-de-vacina';
 import { ScannerDeIdentidadePage } from '../scanner-de-identidade/scanner-de-identidade';
 
+import { Camera, CameraOptions } from '@ionic-native/camera';
+
 @Component({
   selector: 'page-cadastro-de-paciente',
   templateUrl: 'cadastro-de-paciente.html'
 })
 export class CadastroDePacientePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private camera: Camera) {
   }
+
+  runCamera(){
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+    
+    this.camera.getPicture(options).then((imageData) => {
+     // imageData is either a base64 encoded string or a file URI
+     // If it's base64 (DATA_URL):
+     let base64Image = 'data:image/jpeg;base64,' + imageData;
+    }, (err) => {
+     // Handle error
+     console.log('Camera issue: ' + err);
+    });
+  }
+  
   goToCadastroDeVacina(params){
     if (!params) params = {};
     this.navCtrl.push(CadastroDeVacinaPage);
@@ -38,4 +59,5 @@ export class CadastroDePacientePage {
     if (!params) params = {};
     this.navCtrl.push(ScannerDeIdentidadePage);
   }
+
 }
